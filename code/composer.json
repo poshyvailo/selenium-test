@@ -1,0 +1,13 @@
+{
+    "name": "poshik/code",
+    "authors": [
+        {
+            "name": "poshik",
+            "email": "poshik.vova@gmail.com"
+        }
+    ],
+    "require": {
+        "facebook/webdriver": "^1.6",
+        "ext-json": "*"
+    }
+}

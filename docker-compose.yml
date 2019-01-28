@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  php:
+    build: ./docker/php
+    command: php -S 0.0.0.0:8000 index.php
+    volumes:
+    - ./code/:/app/
+    links:
+    - chrome
+    ports:
+      - 8000:8000
+
+  chrome:
+    build: ./docker/selenium
+    volumes:
+    - /dev/shm:/dev/shm
+    ports:
+      - 4444:4444
+      - 5900:5900
+
+  novnc:
+    image: gotget/novnc
+    hostname: localhost
+    links:
+    - chrome:chrome
+    command: --vnc chrome:5900
+    ports:
+      - 6080:6080
